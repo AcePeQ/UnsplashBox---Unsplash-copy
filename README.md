@@ -1,1 +1,1 @@
-# UnsplashBox---Unsplash-copy
+# UnsplashBox
