@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import authRoutes from "./routes/auth.route";
 
 import { connectDB } from "./configs/db.config";
 
@@ -19,6 +20,9 @@ app.use(cors());
 // Forcing server to only parse JSON payload and transform JSON to JS object, sharing it to the req.body and request connections with correct contenty-type
 // It's added because if I would send a POST request with some data without it req.body would be undefined but with that req.body would contain the object passed to the body
 app.use(express.json({ limit: "5mb" }));
+
+// Attach routes
+app.use("/api/auth", authRoutes);
 
 // Listen for the connection on provided PORT and connect to the db
 app.listen(PORT, () => {
