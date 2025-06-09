@@ -1,0 +1,24 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  height: var(--height-navbar);
+
+  width: 100%;
+
+  padding: 1rem 2rem;
+
+  border-bottom: 2px solid var(--color-gray-light-1);
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 2rem;
+}

@@ -1,0 +1,31 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  gap: 2rem;
+}
+
+.link:link,
+.link:visited {
+  font-size: 1.8rem;
+  font-weight: 500;
+
+  color: var(--color-gray-dark-1);
+  background-color: transparent;
+  text-decoration: none;
+
+  padding: 1rem 2rem;
+  border-radius: 6px;
+
+  transition: all 0.4s;
+}
+
+.link:hover,
+.link:active {
+  color: var(--color-gray-dark-2);
+  background-color: var(--color-gray-light-1);
+}

@@ -1,11 +1,14 @@
 :root {
   --color-white: #fff;
   --color-black: #121826;
+  --color-black-2: #020203;
 
   --color-gray-light-1: #e5e7eb;
   --color-gray-light-2: #e5e7ebcc;
 
   --color-gray-dark-1: #6c727f;
+
+  --height-navbar: 72px;
 }
 
 *,
@@ -85,4 +88,9 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+.active {
+  color: var(--color-gray-dark-2) !important;
+  background-color: var(--color-gray-light-1) !important;
 }
