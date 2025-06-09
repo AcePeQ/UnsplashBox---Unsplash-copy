@@ -42,8 +42,46 @@ export async function login(req: Request, res: Response) {
 
 export async function register(req: Request, res: Response) {
   try {
+    const { email, password, username } = req.body;
+
+    if (!email || !password || !username) {
+      res.status(400).json({ message: "All fields are required" });
+      return;
+    }
+
+    const userEmail = await User.findOne({ email });
+    const userName = await User.findOne({ username });
+    if (userEmail || userName) {
+      res
+        .status(400)
+        .json({ message: "User with this email or username is already exist" });
+      return;
+    }
+
+    const genSalts = await brcypt.genSalt(10);
+    const hashedPassword = await brcypt.hash(password, genSalts);
+
+    const newUser = new User({
+      email,
+      password: hashedPassword,
+      username,
+    });
+
+    await newUser.save();
+
+    res.status(200).json({ message: "User created successfully" });
   } catch (error) {
     console.log(`Error in register controller: ${error}`);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+}
+
+export async function logout(_: Request, res: Response) {
+  try {
+    res.cookie("token", "", { maxAge: 0 });
+    res.status(200).json({ message: "Logged out successfully" });
+  } catch (error) {
+    console.log(`Error in logout controller: ${error}`);
     res.status(500).json({ message: "Internal Server Error" });
   }
 }
