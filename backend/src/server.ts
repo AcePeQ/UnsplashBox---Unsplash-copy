@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import authRoutes from "./routes/auth.route";
+import cookieParser from "cookie-parser";
 
 import { connectDB } from "./configs/db.config";
 
@@ -16,6 +17,8 @@ const PORT = process.env.PORT;
 
 // Add middleware CORS to the app, so server can accept requests connection from different domains
 app.use(cors());
+
+app.use(cookieParser());
 
 // Forcing server to only parse JSON payload and transform JSON to JS object, sharing it to the req.body and request connections with correct contenty-type
 // It's added because if I would send a POST request with some data without it req.body would be undefined but with that req.body would contain the object passed to the body
