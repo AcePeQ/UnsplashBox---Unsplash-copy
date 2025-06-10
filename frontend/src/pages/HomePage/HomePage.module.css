@@ -1,5 +1,5 @@
 .section {
-  height: 100%;
+  height: calc(100% - 40px);
 
   display: flex;
   align-items: center;
@@ -8,6 +8,8 @@
   background: url("/backgrounds/hero-image.png");
   background-position: center;
   background-size: cover;
+
+  margin-top: 40px;
 }
 
 .wrapper {

@@ -2,8 +2,6 @@
   min-height: calc(100dvh - var(--height-navbar));
   margin-top: 72px;
 
-  padding-top: 40px;
-
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;

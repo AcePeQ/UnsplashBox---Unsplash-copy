@@ -1,15 +1,20 @@
 import { Search } from "lucide-react";
 import styles from "./ImageSearch.module.css";
 import { useForm, type SubmitHandler } from "react-hook-form";
+import { useNavigate, useParams } from "react-router-dom";
 
 type Inputs = {
   query: string;
 };
 
 function ImageSearch() {
-  const { register, handleSubmit, reset } = useForm<Inputs>();
+  const navigate = useNavigate();
+  const { query: querySearch } = useParams();
+  const { register, handleSubmit } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {};
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    navigate(`/search/${data.query}`);
+  };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -17,6 +22,7 @@ function ImageSearch() {
         <input
           className={styles.input}
           type="text"
+          defaultValue={querySearch || ""}
           placeholder="Enter your keywords..."
           {...register("query", { required: true, minLength: 1 })}
         />

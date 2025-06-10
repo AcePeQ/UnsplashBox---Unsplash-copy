@@ -1,0 +1,26 @@
+.section {
+  height: 100%;
+
+  background: url("/backgrounds/gradiend-bg@2x.png");
+  background-repeat: no-repeat;
+  background-position-x: center;
+
+  background-size: 100% 115px;
+
+  padding-top: 115px;
+}
+
+.wrapper {
+  position: relative;
+
+  form {
+    position: relative;
+
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  form div {
+    transform: translateY(-50%);
+  }
+}
