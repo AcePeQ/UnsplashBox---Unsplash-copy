@@ -7,6 +7,8 @@
   --color-gray-light-2: #e5e7ebcc;
 
   --color-gray-dark-1: #6c727f;
+  --color-gray-dark-2: #c8ccd5;
+  --color-gray-dark-3: #abb2bf;
 
   --height-navbar: 72px;
 }
@@ -91,6 +93,6 @@ h6 {
 }
 
 .active {
-  color: var(--color-gray-dark-2) !important;
+  color: var(--color-black) !important;
   background-color: var(--color-gray-light-1) !important;
 }
