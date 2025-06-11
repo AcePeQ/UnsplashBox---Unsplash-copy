@@ -1,7 +1,9 @@
+const ACCESS_KEY = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
+
 export async function getSearchResultApi(query: string, page: number) {
   try {
     const res = await fetch(
-      `https://api.unsplash.com/search/photos?page=${page}&query=${query}`,
+      `https://api.unsplash.com/search/photos?page=${page}&query=${query}&client_id=${ACCESS_KEY}`,
       { method: "GET" }
     );
 

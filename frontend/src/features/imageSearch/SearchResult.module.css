@@ -1,5 +1,50 @@
 .resultWrapper {
-  margin-top: 2rem;
+  margin-top: 6rem;
 
   padding: 0 8rem;
+
+  column-count: 4;
+
+  figure {
+    margin-bottom: 2rem;
+
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  figure img {
+    width: 100%;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 8rem 0 4rem;
+}
+
+.my-masonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -30px;
+  width: auto;
+
+  padding-inline: 8rem;
+  margin-top: 6rem;
+}
+.my-masonry-grid_column {
+  padding-left: 30px;
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > figure {
+  margin-bottom: 30px;
+
+  img {
+    width: 100%;
+  }
 }

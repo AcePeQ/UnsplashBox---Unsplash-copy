@@ -1,8 +1,8 @@
-import type { ReactElement } from "react";
+import type { ButtonHTMLAttributes, ReactElement } from "react";
 import styles from "./Button.module.css";
 
-interface IButton {
-  buttonType: string;
+interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
+  buttonType?: string;
   onClick: () => void;
   children: string | ReactElement;
 }
