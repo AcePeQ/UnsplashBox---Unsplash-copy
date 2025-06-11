@@ -4,6 +4,7 @@ import styles from "./SearchResult.module.css";
 import { useGetSearchResult } from "./useGetSearchResult";
 import { useParams } from "react-router-dom";
 import type { IUnsplashImage } from "../../types/unsplashTypes";
+import Loading from "../../components/Loading/Loading";
 
 const breakpointColumnsObj = {
   default: 4,
@@ -40,12 +41,12 @@ function SearchResult() {
     return results;
   });
 
-  console.log(imagesResults);
+  return <Loading />;
 
   return status === "pending" ? (
-    <p>Loading...</p>
+    <p className={styles.margin}>Loading...</p>
   ) : status === "error" ? (
-    <p>Error: {error?.message}</p>
+    <p className={styles.margin}>Error: {error?.message}</p>
   ) : (
     <>
       <Masonry
@@ -71,7 +72,9 @@ function SearchResult() {
             : "Nothing more to load"}
         </Button>
       </div>
-      <p>{isFetching && !isFetchingNextPage ? "Loading..." : null}</p>
+      <p className={styles.margin}>
+        {isFetching && !isFetchingNextPage ? "Loading..." : null}
+      </p>
     </>
   );
 }
