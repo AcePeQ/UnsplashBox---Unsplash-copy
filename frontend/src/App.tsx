@@ -1,8 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from "./components/Layouts/Layout";
-import HomePage from "./pages/HomePage/HomePage";
-import SearchPage from "./pages/SearchPage/SearchPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { lazy } from "react";
+
+import Layout from "./components/Layouts/Layout";
+
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const SearchPage = lazy(() => import("./pages/SearchPage/SearchPage"));
 
 const queryClient = new QueryClient();
 
