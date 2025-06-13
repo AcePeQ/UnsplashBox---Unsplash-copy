@@ -1,5 +1,6 @@
-import ImageSearch from "../../features/imageSearch/ImageSearch";
-import SearchResult from "../../features/imageSearch/SearchResult";
+import ImageSearch from "../../features/imageSearch/components/ImageSearch/ImageSearch";
+import SearchResult from "../../features/imageSearch/components/SearchResult/SearchResult";
+
 import styles from "./SearchPage.module.css";
 
 function SearchPage() {

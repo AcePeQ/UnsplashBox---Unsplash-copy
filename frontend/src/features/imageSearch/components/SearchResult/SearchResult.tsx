@@ -1,12 +1,12 @@
 import Masonry from "react-masonry-css";
-import Button from "../../components/Button/Button";
 import styles from "./SearchResult.module.css";
-import { useGetSearchResult } from "./useGetSearchResult";
 import { useParams } from "react-router-dom";
-import type { IUnsplashImage } from "../../types/unsplashTypes";
-import Loading from "../../components/Loading/Loading";
-import ImageCard from "../../components/ImageCard/ImageCard";
-import type { IImageTypes } from "../../types/imageTypes";
+import { useGetSearchResult } from "../../useGetSearchResult";
+import type { IUnsplashImage } from "../../../../types/unsplashTypes";
+import Loading from "../../../../components/Loading/Loading";
+import type { IImageTypes } from "../../../../types/imageTypes";
+import ImageCard from "../../../../components/ImageCard/ImageCard";
+import Button from "../../../../components/Button/Button";
 
 const breakpointColumnsObj = {
   default: 4,

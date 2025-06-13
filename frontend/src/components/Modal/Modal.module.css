@@ -1,0 +1,52 @@
+.dialog {
+  padding: 0;
+  margin: auto;
+  border: none;
+
+  border-radius: 12px;
+
+  max-width: 60rem;
+}
+
+.dialog::backdrop {
+  background-color: var(--color-black-opcaity);
+  cursor: pointer;
+}
+
+.modal {
+  padding: 2rem;
+}
+
+.header {
+  position: relative;
+
+  h2 {
+    color: var(--color-black);
+    font-size: 3.2rem;
+    text-align: center;
+    font-weight: 600;
+    padding: 0 4rem;
+
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-black-2);
+  }
+
+  button {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+
+    cursor: pointer;
+
+    background: none;
+    border: none;
+
+    color: var(--color-black);
+
+    transition: all 0.4s;
+  }
+
+  button:hover {
+    color: var(--color-black-2);
+  }
+}

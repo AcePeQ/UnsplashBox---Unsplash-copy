@@ -1,4 +1,4 @@
-import ImageSearch from "../../features/imageSearch/ImageSearch";
+import ImageSearch from "../../features/imageSearch/components/ImageSearch/ImageSearch";
 import styles from "./HomePage.module.css";
 
 function HomePage() {
