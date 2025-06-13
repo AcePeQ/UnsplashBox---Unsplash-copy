@@ -6,11 +6,18 @@
   border-radius: 12px;
 
   max-width: 60rem;
+
+  animation: pop-hide 0.3s ease-in-out;
+}
+
+.dialog:open {
+  animation: pop-up 0.3s ease-in-out;
 }
 
 .dialog::backdrop {
-  background-color: var(--color-black-opcaity);
   cursor: pointer;
+
+  animation: fade-in 0.5s ease-in-out forwards;
 }
 
 .modal {
@@ -48,5 +55,43 @@
 
   button:hover {
     color: var(--color-black-2);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    background-color: #12182600;
+  }
+
+  100% {
+    background-color: #12182663;
+  }
+}
+
+@keyframes pop-up {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+    display: none;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    display: block;
+  }
+}
+
+@keyframes pop-hide {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    display: block;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0);
+    display: none;
   }
 }
