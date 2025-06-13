@@ -1,14 +1,17 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { lazy } from "react";
+import { ToastContainer, Zoom } from "react-toastify";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import Layout from "./components/Layouts/Layout";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const SearchPage = lazy(() => import("./pages/SearchPage/SearchPage"));
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { staleTime: 0 } },
+});
 
 function App() {
   return (
@@ -21,6 +24,13 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      <ToastContainer
+        position="top-left"
+        autoClose={5000}
+        theme="light"
+        pauseOnHover
+        transition={Zoom}
+      />
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
