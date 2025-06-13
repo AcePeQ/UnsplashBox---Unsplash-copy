@@ -1,0 +1,63 @@
+.imageOverlay {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+
+  background-color: var(--color-black-opcaity);
+
+  z-index: 1;
+
+  transition: all 0.4s;
+}
+
+.imageOverlay button:nth-child(1) {
+  position: absolute;
+
+  top: 12px;
+  right: 16px;
+}
+
+.imageOverlay button:nth-child(2) {
+  position: absolute;
+
+  bottom: 16px;
+  left: 16px;
+
+  z-index: 2;
+
+  display: flex;
+  gap: 1rem;
+
+  color: var(--color-white);
+  background: none;
+  border: none;
+
+  cursor: pointer;
+
+  transition: all 0.4s;
+}
+
+.imageOverlay button:nth-child(2):hover {
+  color: var(--color-gray-light-1);
+}
+
+.imageOverlay button:nth-child(3) {
+  position: absolute;
+
+  bottom: 12px;
+  right: 16px;
+}
+
+.imageLink:hover .imageOverlay {
+  opacity: 100%;
+  visibility: visible;
+  pointer-events: all;
+}

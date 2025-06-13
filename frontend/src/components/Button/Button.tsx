@@ -3,7 +3,6 @@ import styles from "./Button.module.css";
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonType?: string;
-  onClick: () => void;
   children: string | ReactElement;
 }
 

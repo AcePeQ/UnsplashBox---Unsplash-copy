@@ -39,3 +39,31 @@
   background-color: var(--color-black);
   color: var(--color-white);
 }
+
+.secondary {
+  border: 2px solid var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-black);
+
+  box-shadow: 0 4px 2px var(--color-gray-light-1);
+}
+
+.secondary:hover,
+.secondary:active {
+  background-color: var(--color-gray-light-1);
+  border: 2px solid var(--color-gray-light-1);
+
+  box-shadow: 0 4px 2px var(--color-gray-light-2);
+}
+
+.secondary-outline {
+  border: 2px solid var(--color-white);
+
+  box-shadow: 0 4px 2px var(--color-white);
+}
+
+.secondary-outline:hover,
+.secondary-outline:active {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}

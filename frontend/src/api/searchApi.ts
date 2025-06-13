@@ -1,4 +1,4 @@
-const ACCESS_KEY = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
+import { ACCESS_KEY } from "../utils/envVariables";
 
 export async function getSearchResultApi(query: string, page: number) {
   try {

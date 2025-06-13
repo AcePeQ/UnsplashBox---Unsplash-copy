@@ -5,6 +5,8 @@ import { useGetSearchResult } from "./useGetSearchResult";
 import { useParams } from "react-router-dom";
 import type { IUnsplashImage } from "../../types/unsplashTypes";
 import Loading from "../../components/Loading/Loading";
+import ImageCard from "../../components/ImageCard/ImageCard";
+import type { IImageTypes } from "../../types/imageTypes";
 
 const breakpointColumnsObj = {
   default: 4,
@@ -33,18 +35,16 @@ function SearchResult() {
         created_at: item.created_at,
         image_url: item.urls.small,
         id: item.id,
-        download_link: item.links.download,
+        download_link: item.links.download_location,
         user_name: item.user.name,
-        user_profile_image: item.user.profile_image.small,
+        user_profile_link: item.user.links.html,
       };
     });
     return results;
   });
 
-  return <Loading />;
-
   return status === "pending" ? (
-    <p className={styles.margin}>Loading...</p>
+    <Loading />
   ) : status === "error" ? (
     <p className={styles.margin}>Error: {error?.message}</p>
   ) : (
@@ -54,10 +54,8 @@ function SearchResult() {
         className={styles["my-masonry-grid"]}
         columnClassName={styles["my-masonry-grid_column"]}
       >
-        {imagesResults?.map((img, index) => (
-          <figure key={index}>
-            <img src={img.image_url} />
-          </figure>
+        {imagesResults?.map((img: IImageTypes) => (
+          <ImageCard key={img.id} image={img} />
         ))}
       </Masonry>
       <div className={styles.buttonWrapper}>
@@ -72,9 +70,8 @@ function SearchResult() {
             : "Nothing more to load"}
         </Button>
       </div>
-      <p className={styles.margin}>
-        {isFetching && !isFetchingNextPage ? "Loading..." : null}
-      </p>
+
+      {isFetching && !isFetchingNextPage ? <Loading /> : null}
     </>
   );
 }
