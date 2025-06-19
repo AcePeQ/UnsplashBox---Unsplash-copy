@@ -3,6 +3,7 @@ import FormRow from "../../../../components/FormRow/FormRow";
 
 import styles from "./LoginForm.module.css";
 import Button from "../../../../components/Button/Button";
+import { useLogin } from "../../useLogin";
 
 export interface ILoginInputs {
   email: string;
@@ -10,6 +11,8 @@ export interface ILoginInputs {
 }
 
 function LoginForm({ onCloseModal }: { onCloseModal: () => void }) {
+  const { login, isPending } = useLogin();
+
   const {
     register,
     handleSubmit,
@@ -18,7 +21,16 @@ function LoginForm({ onCloseModal }: { onCloseModal: () => void }) {
   } = useForm<ILoginInputs>();
 
   const onSubmit: SubmitHandler<ILoginInputs> = (data) => {
-    console.log(data);
+    login(data, {
+      onSuccess: () => {
+        reset();
+        onCloseModal();
+      },
+      onError: () => {
+        reset();
+        onCloseModal();
+      },
+    });
   };
 
   return (
@@ -49,6 +61,7 @@ function LoginForm({ onCloseModal }: { onCloseModal: () => void }) {
 
       <div className={styles.btns}>
         <Button
+          disabled={isPending}
           buttonType="primary-outline"
           type="button"
           onClick={() => {
@@ -58,7 +71,9 @@ function LoginForm({ onCloseModal }: { onCloseModal: () => void }) {
         >
           Close
         </Button>
-        <Button type="submit">Login</Button>
+        <Button disabled={isPending} type="submit">
+          Login
+        </Button>
       </div>
     </form>
   );
