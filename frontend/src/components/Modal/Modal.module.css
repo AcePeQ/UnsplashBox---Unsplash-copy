@@ -7,7 +7,7 @@
 
   max-width: 60rem;
 
-  box-shadow: 0 0.5rem 1rem var(--color-black-2);
+  box-shadow: 0 0.5rem 2rem var(--color-black);
 
   animation: pop-hide 0.3s ease-in-out;
 }
