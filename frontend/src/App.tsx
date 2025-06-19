@@ -30,6 +30,7 @@ function App() {
         theme="light"
         pauseOnHover
         transition={Zoom}
+        style={{ zIndex: "100000" }}
       />
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

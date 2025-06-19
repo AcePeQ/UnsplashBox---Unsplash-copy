@@ -28,7 +28,6 @@ function LoginForm({ onCloseModal }: { onCloseModal: () => void }) {
       },
       onError: () => {
         reset();
-        onCloseModal();
       },
     });
   };

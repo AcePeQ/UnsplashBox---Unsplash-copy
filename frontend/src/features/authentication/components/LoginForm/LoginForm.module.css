@@ -1,18 +1,11 @@
 .form {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
 
   width: 38rem;
 
   margin-top: 2rem;
-
-  & p {
-    margin-bottom: 1.4rem;
-  }
-
-  & p:last-of-type {
-    margin-bottom: 2.2rem;
-  }
 
   & input {
     outline: none;

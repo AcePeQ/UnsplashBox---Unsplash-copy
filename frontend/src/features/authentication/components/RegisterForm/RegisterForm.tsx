@@ -2,6 +2,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import styles from "./RegisterForm.module.css";
 import FormRow from "../../../../components/FormRow/FormRow";
 import Button from "../../../../components/Button/Button";
+import { useRegister } from "../../useRegister";
 
 export interface IRegisterInputs {
   email: string;
@@ -10,6 +11,8 @@ export interface IRegisterInputs {
 }
 
 function RegisterForm({ onCloseModal }: { onCloseModal: () => void }) {
+  const { register: createAccount, isPending } = useRegister();
+
   const {
     register,
     handleSubmit,
@@ -18,7 +21,15 @@ function RegisterForm({ onCloseModal }: { onCloseModal: () => void }) {
   } = useForm<IRegisterInputs>();
 
   const onSubmit: SubmitHandler<IRegisterInputs> = (data) => {
-    console.log(data);
+    createAccount(data, {
+      onSuccess: () => {
+        reset();
+        onCloseModal();
+      },
+      onError: () => {
+        reset();
+      },
+    });
   };
 
   return (
@@ -61,6 +72,7 @@ function RegisterForm({ onCloseModal }: { onCloseModal: () => void }) {
 
       <div className={styles.btns}>
         <Button
+          disabled={isPending}
           buttonType="primary-outline"
           type="button"
           onClick={() => {
@@ -70,7 +82,9 @@ function RegisterForm({ onCloseModal }: { onCloseModal: () => void }) {
         >
           Close
         </Button>
-        <Button type="submit">Register</Button>
+        <Button disabled={isPending} type="submit">
+          Register
+        </Button>
       </div>
     </form>
   );

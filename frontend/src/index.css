@@ -11,6 +11,8 @@
   --color-gray-dark-2: #c8ccd5;
   --color-gray-dark-3: #abb2bf;
 
+  --color-red-1: oklch(70.4% 0.191 22.216);
+
   --height-navbar: 72px;
 }
 

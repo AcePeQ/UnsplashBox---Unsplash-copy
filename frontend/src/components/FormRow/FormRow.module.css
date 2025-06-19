@@ -9,3 +9,13 @@
   font-size: 2.2rem;
   font-weight: 500;
 }
+
+.error {
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+
+  margin-top: 1rem;
+
+  color: var(--color-red-1);
+}
