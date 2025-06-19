@@ -1,23 +1,23 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
+import styles from "./RegisterForm.module.css";
 import FormRow from "../../../../components/FormRow/FormRow";
-
-import styles from "./LoginForm.module.css";
 import Button from "../../../../components/Button/Button";
 
-export interface ILoginInputs {
+export interface IRegisterInputs {
   email: string;
   password: string;
+  username: string;
 }
 
-function LoginForm({ onCloseModal }: { onCloseModal: () => void }) {
+function RegisterForm({ onCloseModal }: { onCloseModal: () => void }) {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<ILoginInputs>();
+  } = useForm<IRegisterInputs>();
 
-  const onSubmit: SubmitHandler<ILoginInputs> = (data) => {
+  const onSubmit: SubmitHandler<IRegisterInputs> = (data) => {
     console.log(data);
   };
 
@@ -31,6 +31,18 @@ function LoginForm({ onCloseModal }: { onCloseModal: () => void }) {
           aria-invalid={errors.email ? true : false}
           {...register("email", {
             required: "Email field is required",
+          })}
+        />
+      </FormRow>
+
+      <FormRow label="Username" error={errors.username?.message as string}>
+        <input
+          id="username"
+          type="text"
+          placeholder=" "
+          aria-invalid={errors.username ? true : false}
+          {...register("username", {
+            required: "Username field is required",
           })}
         />
       </FormRow>
@@ -58,10 +70,10 @@ function LoginForm({ onCloseModal }: { onCloseModal: () => void }) {
         >
           Close
         </Button>
-        <Button type="submit">Login</Button>
+        <Button type="submit">Register</Button>
       </div>
     </form>
   );
 }
 
-export default LoginForm;
+export default RegisterForm;

@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import brcypt from "bcrypt";
-import User from "../models/User.Model";
+
 import { generateToken } from "../utils/auth.util";
+import User from "../models/user.model";
 
 export async function login(req: Request, res: Response) {
   try {

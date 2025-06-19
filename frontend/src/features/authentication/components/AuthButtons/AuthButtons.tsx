@@ -2,6 +2,8 @@ import styles from "./AuthButtons.module.css";
 import Button from "../../../../components/Button/Button";
 import { useRef } from "react";
 import Modal from "../../../../components/Modal/Modal";
+import LoginForm from "../LoginForm/LoginForm";
+import RegisterForm from "../RegisterForm/RegisterForm";
 
 interface IForwardAuthRef {
   open: () => void;
@@ -11,6 +13,14 @@ interface IForwardAuthRef {
 function AuthButtons() {
   const loginModal = useRef<IForwardAuthRef | null>(null);
   const registerModal = useRef<IForwardAuthRef | null>(null);
+
+  function handleCloseLoginModal() {
+    loginModal.current?.close();
+  }
+
+  function handleCloseRegisterModal() {
+    registerModal.current?.close();
+  }
 
   return (
     <div className={styles.buttons}>
@@ -28,11 +38,11 @@ function AuthButtons() {
       </Button>
 
       <Modal title="Login" ref={loginModal}>
-        <p>Login</p>
+        <LoginForm onCloseModal={handleCloseLoginModal} />
       </Modal>
 
       <Modal title="Register" ref={registerModal}>
-        <p>Register</p>
+        <RegisterForm onCloseModal={handleCloseRegisterModal} />
       </Modal>
     </div>
   );

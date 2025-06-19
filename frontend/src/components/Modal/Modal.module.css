@@ -1,11 +1,13 @@
 .dialog {
   padding: 0;
   margin: auto;
-  border: none;
+  border: 3px solid var(--color-black-2);
 
   border-radius: 12px;
 
   max-width: 60rem;
+
+  box-shadow: 0 0.5rem 1rem var(--color-black-2);
 
   animation: pop-hide 0.3s ease-in-out;
 }
