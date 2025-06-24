@@ -4,6 +4,8 @@ import FormRow from "../../../../components/FormRow/FormRow";
 import styles from "./LoginForm.module.css";
 import Button from "../../../../components/Button/Button";
 import { useLogin } from "../../useLogin";
+import { useUserStore } from "../../../../stores/useUserStore";
+import type { TUser } from "../../../../types/userTypes";
 
 export interface ILoginInputs {
   email: string;
@@ -12,6 +14,7 @@ export interface ILoginInputs {
 
 function LoginForm({ onCloseModal }: { onCloseModal: () => void }) {
   const { login, isPending } = useLogin();
+  const loginToAccount = useUserStore((state) => state.login);
 
   const {
     register,
@@ -22,7 +25,8 @@ function LoginForm({ onCloseModal }: { onCloseModal: () => void }) {
 
   const onSubmit: SubmitHandler<ILoginInputs> = (data) => {
     login(data, {
-      onSuccess: () => {
+      onSuccess: (userData: TUser) => {
+        loginToAccount(userData);
         reset();
         onCloseModal();
       },

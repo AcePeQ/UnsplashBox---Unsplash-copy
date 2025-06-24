@@ -1,0 +1,114 @@
+.userMenu {
+  background: none;
+  border: none;
+  border-radius: 50%;
+
+  width: 5rem;
+  height: 5rem;
+
+  cursor: pointer;
+
+  margin-left: auto;
+
+  position: relative;
+}
+
+.userPhoto {
+  width: 100%;
+  height: 100%;
+
+  border: 3px solid var(--color-gray-dark-2);
+  border-radius: 50%;
+
+  padding: 0.5rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  z-index: 110;
+
+  bottom: -16px;
+  right: 0;
+
+  transform: translateY(100%);
+
+  background-color: var(--color-white);
+
+  padding: 1.5rem 1rem;
+
+  cursor: initial;
+
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 12px 8px var(--color-black);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: all 0.3s;
+}
+
+.navActive {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+
+  bottom: -10px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+
+  font-size: 1.8rem;
+  font-weight: 500;
+
+  color: var(--color-gray-dark-1);
+  background-color: transparent;
+  text-decoration: none;
+
+  padding: 1rem 2rem;
+  border-radius: 6px;
+
+  transition: all 0.4s;
+}
+
+.link:hover,
+.link:active {
+  color: var(--color-black);
+  background-color: var(--color-gray-light-1);
+}
+
+.btn {
+  border: none;
+
+  font-size: 1.8rem;
+  font-weight: 500;
+
+  color: var(--color-gray-dark-1);
+  background-color: transparent;
+  text-decoration: none;
+
+  padding: 1rem 2rem;
+  border-radius: 6px;
+
+  transition: all 0.4s;
+
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:active {
+  color: var(--color-black);
+  background-color: var(--color-gray-light-1);
+}

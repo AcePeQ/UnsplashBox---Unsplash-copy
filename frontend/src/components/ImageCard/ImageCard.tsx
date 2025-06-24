@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom";
 import styles from "./ImageCard.module.css";
+
+import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import type { IImageTypes } from "../../types/imageTypes";
 import { useDownloadImage } from "../../features/imageSearch/useDownloadImage";
@@ -12,7 +14,11 @@ function ImageCard({ image }: ImageCardProps) {
   const { downloadImage } = useDownloadImage();
 
   return (
-    <figure>
+    <motion.figure
+      initial={{ opacity: 0, y: "12px" }}
+      animate={{ opacity: 1, y: "0px" }}
+      transition={{ duration: 0.8 }}
+    >
       <Link
         className={styles.imageLink}
         to="/"
@@ -51,7 +57,7 @@ function ImageCard({ image }: ImageCardProps) {
           </Button>
         </div>
       </Link>
-    </figure>
+    </motion.figure>
   );
 }
 
