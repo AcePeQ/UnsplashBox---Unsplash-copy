@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useUserStore } from "../../stores/useUserStore";
 import styles from "./UserMenu.module.css";
 import { useRef, useState } from "react";
+import { useLogout } from "../../features/authentication/useLogout";
+import { toast } from "react-toastify";
 
 const UserMenuNav = [
   { text: "Profile", link: "/" },
@@ -13,6 +15,8 @@ function UserMenu() {
   const menuTimer = useRef<NodeJS.Timeout | null>(null);
   const navigate = useNavigate();
   const userPhoto = useUserStore((state) => state.user?.profilePicture);
+  const logoutUser = useUserStore((state) => state.logout);
+  const { logout, isPending } = useLogout();
 
   function handleOpenMenu() {
     if (menuTimer.current) {
@@ -25,6 +29,16 @@ function UserMenu() {
     menuTimer.current = setTimeout(() => {
       setIsOpen(false);
     }, 400);
+  }
+
+  function handleLogout() {
+    logout(undefined, {
+      onSuccess: () => {
+        logoutUser();
+        toast.success("Successfully logout");
+        navigate("/", { replace: true });
+      },
+    });
   }
 
   return (
@@ -50,8 +64,9 @@ function UserMenu() {
           ))}
           <li className={styles.item}>
             <button
+              disabled={isPending}
               className={styles.btn}
-              onClick={() => navigate("/settings")}
+              onClick={handleLogout}
             >
               Logout
             </button>

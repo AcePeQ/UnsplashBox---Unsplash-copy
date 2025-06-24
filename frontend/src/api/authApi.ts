@@ -60,3 +60,27 @@ export async function registerApi(registerData: IRegisterData) {
     }
   }
 }
+
+export async function logoutApi() {
+  try {
+    const res = await fetch(`${API_URL}/api/auth/logout`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    if (!res.ok) {
+      const error: IApiError = await res.json();
+      throw new Error(error.message);
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error("API Error:", error.message);
+      throw error;
+    } else {
+      console.error("Unknown error:", error);
+      throw new Error("Something went wrong");
+    }
+  }
+}
