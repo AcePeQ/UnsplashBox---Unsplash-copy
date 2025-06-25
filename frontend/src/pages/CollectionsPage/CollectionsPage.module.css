@@ -54,12 +54,10 @@
   }
 }
 
-.collections {
-  margin-top: 5rem;
+.notification {
+  margin-top: 5rem !important;
+  font-size: 2.4rem !important;
+  font-weight: 600 !important;
 
-  display: grid;
-  justify-content: space-between;
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 3rem;
+  color: var(--color-red-1) !important;
 }
