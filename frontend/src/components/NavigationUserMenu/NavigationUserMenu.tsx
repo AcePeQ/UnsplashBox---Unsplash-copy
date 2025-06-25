@@ -20,6 +20,7 @@ function NavigationUserMenu({ isMenuOpen }: { isMenuOpen: boolean }) {
     logout(undefined, {
       onSuccess: () => {
         logoutUser();
+        sessionStorage.removeItem("user");
         toast.success("Successfully logout");
         navigate("/", { replace: true });
       },

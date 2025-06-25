@@ -8,6 +8,9 @@ import Layout from "./components/Layouts/Layout";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const SearchPage = lazy(() => import("./pages/SearchPage/SearchPage"));
+const CollectionsPage = lazy(
+  () => import("./pages/CollectionsPage/CollectionsPage")
+);
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 0 } },
@@ -20,6 +23,7 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<HomePage />} />
+            <Route path="/collections" element={<CollectionsPage />} />
             <Route path="/search/:query" element={<SearchPage />} />
           </Route>
         </Routes>
