@@ -1,3 +1,4 @@
+import AddToCollectionButton from "../../components/AddToCollectionButton/AddToCollectionButton";
 import CollectionCard from "../../components/CollectionCard/CollectionCard";
 import styles from "./CollectionsPage.module.css";
 
@@ -19,6 +20,7 @@ function CollectionsPage() {
         <div className={styles.collections}>
           <CollectionCard />
           <CollectionCard />
+          <AddToCollectionButton />
         </div>
       </div>
     </section>
