@@ -8,7 +8,7 @@ type UserStore = {
 };
 
 export const useUserStore = create<UserStore>((set) => ({
-  user: null,
+  user: JSON.parse(sessionStorage.getItem("user") as string) || null,
 
   login: (userData) => {
     set(() => ({ user: userData }));

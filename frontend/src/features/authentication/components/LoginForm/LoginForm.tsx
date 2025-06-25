@@ -27,6 +27,7 @@ function LoginForm({ onCloseModal }: { onCloseModal: () => void }) {
     login(data, {
       onSuccess: (userData: TUser) => {
         loginToAccount(userData);
+        sessionStorage.setItem("user", JSON.stringify(userData));
         reset();
         onCloseModal();
       },
