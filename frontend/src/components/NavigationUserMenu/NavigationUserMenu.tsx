@@ -13,10 +13,12 @@ const UserMenuNav = [
 
 function NavigationUserMenu({ isMenuOpen }: { isMenuOpen: boolean }) {
   const logoutUser = useUserStore((state) => state.logout);
-  const { logout, isPending } = useLogout();
+  const { logout } = useLogout();
   const navigate = useNavigate();
 
-  function handleLogout() {
+  function handleLogout(e: React.MouseEvent<HTMLAnchorElement>) {
+    e.preventDefault();
+
     logout(undefined, {
       onSuccess: () => {
         logoutUser();
@@ -30,21 +32,17 @@ function NavigationUserMenu({ isMenuOpen }: { isMenuOpen: boolean }) {
   return (
     <nav className={`${styles.nav} ${isMenuOpen ? styles.navActive : ""}`}>
       <ul className={styles.list}>
-        {UserMenuNav.map((link) => (
-          <li className={styles.item}>
+        {UserMenuNav.map((link, index) => (
+          <li key={index} className={styles.item}>
             <Link to={link.link} className={styles.link}>
               {link.text}
             </Link>
           </li>
         ))}
         <li className={styles.item}>
-          <button
-            disabled={isPending}
-            className={styles.btn}
-            onClick={handleLogout}
-          >
+          <Link to="" className={styles.btn} onClick={handleLogout}>
             Logout
-          </button>
+          </Link>
         </li>
       </ul>
     </nav>

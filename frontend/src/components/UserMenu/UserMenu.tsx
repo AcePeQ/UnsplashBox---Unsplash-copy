@@ -9,8 +9,8 @@ function UserMenu() {
   const userPhoto = useUserStore((state) => state.user?.profilePicture);
 
   function handleOpenMenu() {
+    setIsOpen(true);
     if (menuTimer.current) {
-      setIsOpen(true);
       clearTimeout(menuTimer.current);
     }
   }

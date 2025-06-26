@@ -41,7 +41,7 @@ function LoginForm({ onCloseModal }: { onCloseModal: () => void }) {
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Email" error={errors.email?.message as string}>
         <input
-          id="email"
+          id="email-login"
           type="text"
           placeholder=" "
           aria-invalid={errors.email ? true : false}
@@ -53,7 +53,7 @@ function LoginForm({ onCloseModal }: { onCloseModal: () => void }) {
 
       <FormRow label="Password" error={errors.password?.message as string}>
         <input
-          id="password"
+          id="password-login"
           type="text"
           aria-invalid={errors.password ? true : false}
           placeholder=" "
