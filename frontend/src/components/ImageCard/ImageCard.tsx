@@ -21,7 +21,7 @@ function ImageCard({ image }: ImageCardProps) {
     >
       <Link
         className={styles.imageLink}
-        to="/"
+        to={`/image/${image.id}`}
         onClick={(e) => {
           if ((e.target as HTMLElement).closest("button")) e.preventDefault();
         }}

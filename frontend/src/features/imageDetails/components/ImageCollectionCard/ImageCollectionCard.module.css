@@ -1,0 +1,70 @@
+.collection_card {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+
+  padding: 1rem;
+
+  transition: all 0.4s;
+}
+
+.collection_card:hover {
+  background-color: var(--color-gray-light-1);
+  border-radius: 6px;
+}
+
+.card_header {
+  display: flex;
+  gap: 1.5rem;
+
+  img {
+    width: 6.4rem;
+    height: 6.4rem;
+    object-fit: cover;
+
+    border-radius: 6px;
+  }
+}
+
+.card_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 0.25rem;
+}
+
+.card_title {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.card_numberOfPhotos {
+  font-size: 1.2rem;
+  font-weight: 400;
+
+  padding-left: 1px;
+}
+.removeButton {
+  display: none;
+}
+
+.collection_card:hover .removeButton,
+.collection_card:focus-within .removeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  font-size: 1.4rem;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  background: none;
+  border: none;
+}
+
+.icon {
+  width: 1.8rem;
+  height: 1.8rem;
+}

@@ -1,0 +1,58 @@
+.details {
+  max-width: 120rem;
+  width: 100%;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  column-gap: 5rem;
+}
+
+.imageWrapper {
+  height: 100%;
+  width: 100%;
+
+  border-radius: 9px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+  }
+}
+
+.authorInformations {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  width: 100%;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+
+  gap: 1.25rem;
+
+  img {
+    border-radius: 50%;
+  }
+
+  p {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+}
+
+.publish_date {
+  font-size: 1.4rem;
+}
+
+.btns {
+  display: flex;
+  gap: 2rem;
+}
