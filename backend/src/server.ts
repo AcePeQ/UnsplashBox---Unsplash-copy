@@ -1,8 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import authRoutes from "./routes/auth.route";
 import cookieParser from "cookie-parser";
+
+import authRoutes from "./routes/auth.route";
+import collectionRoutes from "./routes/collection.route";
 
 import { connectDB } from "./configs/db.config";
 
@@ -26,6 +28,7 @@ app.use(express.json({ limit: "5mb" }));
 
 // Attach routes
 app.use("/api/auth", authRoutes);
+app.use("/api/collection", collectionRoutes);
 
 // Listen for the connection on provided PORT and connect to the db
 app.listen(PORT, () => {

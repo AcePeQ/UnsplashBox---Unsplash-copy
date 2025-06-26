@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
-import User, { IUser } from "../models/User.Model";
+
 import mongoose from "mongoose";
+import User, { IUser } from "../models/user.model";
 
 export interface ICustomJwtPayLoad extends JwtPayload {
   userId: mongoose.Types.ObjectId;
