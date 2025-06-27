@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import type { IImageTypes } from "../../types/imageTypes";
 import { useDownloadImage } from "../../features/imageSearch/useDownloadImage";
+import AddToCollectionButton from "../AddToCollectionButton/AddToCollectionButton";
 
 interface ImageCardProps {
   image: IImageTypes;
@@ -28,13 +29,11 @@ function ImageCard({ image }: ImageCardProps) {
       >
         <img src={image.image_url} />
         <div className={styles.imageOverlay}>
-          <Button
-            aria-label="Add to collection"
+          <AddToCollectionButton
+            buttonText="Add"
             buttonType="secondary"
-            onClick={() => {}}
-          >
-            Add
-          </Button>
+            image={image}
+          />
 
           <button
             onClick={() => {

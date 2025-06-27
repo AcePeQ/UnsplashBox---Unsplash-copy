@@ -1,4 +1,6 @@
-import { ACCESS_KEY } from "../utils/envVariables";
+import type { IApiError } from "../types/apiTypes";
+import type { IImageTypes } from "../types/imageTypes";
+import { ACCESS_KEY, API_URL } from "../utils/envVariables";
 
 export async function getImageApi(imageId: string) {
   try {
@@ -45,5 +47,41 @@ export async function downloadImageApi(downloadLink: string) {
     window.URL.revokeObjectURL(url);
   } catch (error) {
     console.error(error);
+  }
+}
+
+export async function addImageToCollectionApi(imageData: {
+  collection_id: string;
+  image: IImageTypes;
+}) {
+  try {
+    const res = await fetch(
+      `${API_URL}/api/collection/add-image-to-collection`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(imageData),
+        credentials: "include",
+      }
+    );
+
+    if (!res.ok) {
+      const error: IApiError = await res.json();
+      throw new Error(error.message);
+    }
+
+    const data = await res.json();
+
+    return data;
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error("API Error:", error.message);
+      throw error;
+    } else {
+      console.error("Unknown error:", error);
+      throw new Error("Something went wrong");
+    }
   }
 }

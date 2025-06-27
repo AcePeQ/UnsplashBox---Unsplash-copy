@@ -10,7 +10,10 @@ function CollectionCard({ collection }: { collection: ICollection }) {
 
   return (
     <article className={styles.card}>
-      <Link className={styles.link} to="/">
+      <Link
+        className={styles.link}
+        to={`/collection/${collection.collection_name}`}
+      >
         <figure className={styles.gallery}>
           {collectionLength === 0 && (
             <div className={styles.notify}>Add photos to the collection</div>

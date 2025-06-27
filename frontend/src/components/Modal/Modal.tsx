@@ -29,7 +29,11 @@ const Modal = forwardRef(function Modal({ title, children }: IModal, ref) {
   });
 
   return createPortal(
-    <dialog ref={modalRef} className={styles.dialog}>
+    <dialog
+      onClick={(e) => e.stopPropagation()}
+      ref={modalRef}
+      className={styles.dialog}
+    >
       <div
         id="modal"
         onClick={(e) => e.stopPropagation()}

@@ -1,4 +1,4 @@
-import AddCollectionButton from "../../../../components/AddToCollectionButton/AddCollectionButton";
+import AddCollectionButton from "../../../../components/AddCollectionButton/AddCollectionButton";
 import CollectionCard from "../../../../components/CollectionCard/CollectionCard";
 import Loading from "../../../../components/Loading/Loading";
 import { useGetUserCollections } from "../../useGetUserCollections";

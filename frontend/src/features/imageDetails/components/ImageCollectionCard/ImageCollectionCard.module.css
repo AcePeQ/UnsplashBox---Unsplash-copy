@@ -68,3 +68,13 @@
   width: 1.8rem;
   height: 1.8rem;
 }
+
+.placeholder {
+  width: 6.4rem;
+  height: 6.4rem;
+  object-fit: cover;
+
+  border-radius: 6px;
+
+  background-color: var(--color-gray-light-1);
+}
