@@ -17,6 +17,21 @@
   border-radius: 6px;
 }
 
+.notify {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--color-gray-dark-1);
+  background-color: var(--color-gray-light-1);
+
+  font-weight: 600;
+  font-size: 2rem;
+}
+
 .image {
   width: 100%;
   height: 100%;

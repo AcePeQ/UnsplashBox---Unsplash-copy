@@ -1,18 +1,31 @@
 import { Link } from "react-router-dom";
 import styles from "./CollectionCard.module.css";
+import type { ICollection } from "../../types/collectionTypes";
 
-function CollectionCard() {
+function CollectionCard({ collection }: { collection: ICollection }) {
+  console.log(collection);
+  const collectionLength = collection.collection.length;
+
+  const collectionImages = collection.collection.slice(0, 3);
+
   return (
     <article className={styles.card}>
       <Link className={styles.link} to="/">
         <figure className={styles.gallery}>
-          <img src="/test/test1.jpg" alt="" className={styles.image} />
-          <img src="/test/test2.jpg" alt="" className={styles.image} />
-          <img src="/test/test3.jpg" alt="" className={styles.image} />
+          {collectionLength === 0 && (
+            <div className={styles.notify}>Add photos to the collection</div>
+          )}
+          {collectionImages.map((image) => (
+            <img
+              src={image.image_url}
+              alt={image.alt}
+              className={styles.image}
+            />
+          ))}
         </figure>
         <div className={styles.details}>
-          <h5 className={styles.title}>Water</h5>
-          <p className={styles.subTitle}>23 photos</p>
+          <h5 className={styles.title}>{collection.collection_name}</h5>
+          <p className={styles.subTitle}>{collectionLength} photos</p>
         </div>
       </Link>
     </article>

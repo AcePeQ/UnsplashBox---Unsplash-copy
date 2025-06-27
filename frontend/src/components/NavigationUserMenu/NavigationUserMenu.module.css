@@ -42,9 +42,18 @@
   gap: 0.5rem;
 }
 
+.item {
+  width: 100%;
+}
+
+.item:last-child {
+  margin-top: 0.5rem;
+}
+
 .link:link,
 .link:visited {
   display: inline-block;
+  width: 100%;
 
   font-size: 1.8rem;
   font-weight: 500;
@@ -67,6 +76,8 @@
 
 .btn {
   border: none;
+
+  width: 100%;
 
   font-size: 1.8rem;
   font-weight: 500;
