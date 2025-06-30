@@ -48,7 +48,7 @@ function ImageCard({
               disabled={isDeleting}
               onClick={() => {
                 if (onDeleteImageFromCollection)
-                  onDeleteImageFromCollection(image._id);
+                  onDeleteImageFromCollection(image.id);
               }}
               type="button"
               buttonType="secondary"

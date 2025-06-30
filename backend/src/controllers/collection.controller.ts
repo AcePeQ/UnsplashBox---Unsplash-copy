@@ -114,6 +114,17 @@ export async function addImageToCollection(req: Request, res: Response) {
       return;
     }
 
+    const isImageAlreadyInCollection = collection.collection.find(
+      (imageItem) => imageItem.id === image.id
+    );
+
+    if (isImageAlreadyInCollection) {
+      res.status(400).json({
+        message: `Image is already in the collection: ${collection.collection_name}`,
+      });
+      return;
+    }
+
     collection.collection.push(image);
 
     await collection.save();
@@ -152,8 +163,8 @@ export async function deleteImageFromCollection(req: Request, res: Response) {
       return;
     }
 
-    const findedImageIndex = collection.collection.findIndex((image) =>
-      image._id.equals(image_id)
+    const findedImageIndex = collection.collection.findIndex(
+      (image) => image_id === image.id
     );
 
     if (findedImageIndex === -1) {

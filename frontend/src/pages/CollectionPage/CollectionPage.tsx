@@ -10,8 +10,6 @@ function CollectionPage() {
 
   const collectionLength = data?.collection.length;
 
-  console.log(data);
-
   return (
     <section className={styles.section}>
       <div className={styles.wrapper}>
