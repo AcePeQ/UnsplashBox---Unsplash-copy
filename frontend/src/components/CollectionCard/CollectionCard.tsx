@@ -3,9 +3,7 @@ import styles from "./CollectionCard.module.css";
 import type { ICollection } from "../../types/collectionTypes";
 
 function CollectionCard({ collection }: { collection: ICollection }) {
-  console.log(collection);
   const collectionLength = collection.collection.length;
-
   const collectionImages = collection.collection.slice(0, 3);
 
   return (
@@ -20,9 +18,16 @@ function CollectionCard({ collection }: { collection: ICollection }) {
           )}
           {collectionImages.map((image) => (
             <img
+              key={image._id}
               src={image.image_url}
               alt={image.alt}
-              className={styles.image}
+              className={`${styles.image} ${
+                collectionLength === 1
+                  ? styles.soloImage
+                  : collectionLength === 2
+                  ? styles.doubleImage
+                  : ""
+              }`}
             />
           ))}
         </figure>

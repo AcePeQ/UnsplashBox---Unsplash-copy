@@ -6,6 +6,7 @@ export interface ICollection {
 }
 
 export interface ICollectionItem {
+  _id: string;
   alt: string;
   created_at: string;
   image_url: string;
