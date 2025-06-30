@@ -6,10 +6,7 @@ import { useUserStore } from "../../stores/useUserStore";
 
 import styles from "./NavigationUserMenu.module.css";
 
-const UserMenuNav = [
-  { text: "Profile", link: "/" },
-  { text: "Settings", link: "/" },
-];
+const UserMenuNav = [{ text: "Profile", link: "/profile" }];
 
 function NavigationUserMenu({ isMenuOpen }: { isMenuOpen: boolean }) {
   const logoutUser = useUserStore((state) => state.logout);
