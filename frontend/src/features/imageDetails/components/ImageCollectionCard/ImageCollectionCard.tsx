@@ -19,7 +19,6 @@ function ImageCollectionCard({
   const queryClient = useQueryClient();
   const { addImageToCollection, isPending: isAdding } =
     useAddImageToCollection();
-  const collectionLength = collection?.collection.length;
 
   function handleAddImageToCollection(e: React.MouseEvent) {
     e.preventDefault();
@@ -28,13 +27,18 @@ function ImageCollectionCard({
       addImageToCollection(
         { collection_id: collection._id, image },
         {
-          onSuccess: () =>
-            queryClient.invalidateQueries({ queryKey: ["userCollections"] }),
+          onSuccess: () => {
+            queryClient.invalidateQueries({
+              queryKey: ["userCollections"],
+            });
+            queryClient.invalidateQueries({ queryKey: ["imageCollections"] });
+          },
         }
       );
     }
   }
 
+  const collectionLength = collection?.collection.length;
   return (
     <Link
       to={`/collection/${collection?.collection_name}`}

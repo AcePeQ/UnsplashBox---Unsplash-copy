@@ -6,5 +6,5 @@ export interface IImageTypes {
   download_link: string;
   user_name: string;
   user_profile_link: string;
-  _id: string;
+  _id?: string;
 }

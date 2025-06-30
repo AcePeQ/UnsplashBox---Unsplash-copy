@@ -4,8 +4,6 @@ import { ACCESS_KEY, API_URL } from "../utils/envVariables";
 
 export async function getImageApi(imageId: string) {
   try {
-    console.log(imageId);
-
     const res = await fetch(
       `https://api.unsplash.com/photos/${imageId}?client_id=${ACCESS_KEY}`
     );

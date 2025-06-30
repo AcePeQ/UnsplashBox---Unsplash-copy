@@ -184,3 +184,40 @@ export async function deleteImageFromCollection(req: Request, res: Response) {
     res.status(500).json({ message: "Internal Server Error" });
   }
 }
+
+export async function getImageCollections(req: Request, res: Response) {
+  try {
+    const authReq = req as IAuthReq;
+    const { image_id } = authReq.query;
+
+    if (!authReq.user) {
+      res.status(401).json({ message: "Unauthorized - No User Found" });
+      return;
+    }
+
+    const collections = await Collection.find({
+      userId: authReq.user._id,
+    });
+
+    if (!collections) {
+      res.status(404).json({ message: "User collections not found" });
+      return;
+    }
+
+    const filteredCollections = collections.filter((collection) => {
+      const isImageInTheCollection = collection.collection.find(
+        (image) => image.id === image_id
+      );
+      if (!isImageInTheCollection) {
+        return false;
+      }
+
+      return true;
+    });
+
+    res.status(200).json(filteredCollections);
+  } catch (error) {
+    console.log(`Error in getting image collections controller: ${error}`);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+}

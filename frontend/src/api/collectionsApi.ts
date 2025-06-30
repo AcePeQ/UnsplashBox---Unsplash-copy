@@ -64,6 +64,38 @@ export async function getCollection(collection_name: string) {
   }
 }
 
+export async function getImageCollections(image_id: string) {
+  try {
+    const res = await fetch(
+      `${API_URL}/api/collection//image-collections?image_id=${image_id}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "GET",
+        credentials: "include",
+      }
+    );
+
+    if (!res.ok) {
+      const error: IApiError = await res.json();
+      throw new Error(error.message);
+    }
+
+    const data = await res.json();
+
+    return data;
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error("API Error:", error.message);
+      throw error;
+    } else {
+      console.error("Unknown error:", error);
+      throw new Error("Something went wrong");
+    }
+  }
+}
+
 export async function createCollection(collectionData: {
   collection_name: string;
 }) {

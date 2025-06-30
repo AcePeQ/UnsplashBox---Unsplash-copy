@@ -5,6 +5,7 @@ import { useGetImageDetails } from "../../useGetImageDetails";
 import Loading from "../../../../components/Loading/Loading";
 import Button from "../../../../components/Button/Button";
 import { useDownloadImage } from "../../../imageSearch/useDownloadImage";
+import AddToCollectionButton from "../../../../components/AddToCollectionButton/AddToCollectionButton";
 
 function ImageDetails() {
   const { image_id } = useParams();
@@ -20,8 +21,6 @@ function ImageDetails() {
     return null;
   }
 
-  console.log(data);
-
   const formattedDate = new Date(data.created_at).toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
@@ -31,28 +30,36 @@ function ImageDetails() {
   return (
     <article className={styles.details}>
       <figure className={styles.imageWrapper}>
-        <img src={data?.urls.small} alt={data?.alt_description} />
+        <img src={data?.urls.full} alt={data?.alt_description} />
       </figure>
 
       <div>
         <div className={styles.authorInformations}>
           <div className={styles.author}>
-            <img src={data?.user.profile_image.medium} alt="" />
+            <img
+              src={data?.user.profile_image.medium}
+              alt={`Photo of the author: ${data.user.name}`}
+            />
             <p>{data?.user.name}</p>
           </div>
 
           <p className={styles.publish_date}>Published on {formattedDate}</p>
 
           <div className={styles.btns}>
-            <Button
-              aria-label="Add to collection"
+            <AddToCollectionButton
+              buttonText="Add To Collection"
               buttonType="primary"
-              onClick={() => {
-                downloadImage({ download_location: data.links.download });
+              image={{
+                alt: data.alt_description,
+                created_at: data.created_at,
+                image_url: data.urls.raw,
+                id: data.id,
+                download_link: data.links.download,
+                user_name: data.user.name,
+                user_profile_link: data.user.links.html,
               }}
-            >
-              Add to Collection
-            </Button>
+            />
+
             <Button
               aria-label="Download"
               buttonType="primary-outline"
@@ -65,7 +72,17 @@ function ImageDetails() {
           </div>
         </div>
 
-        <ImageCollections />
+        <ImageCollections
+          image={{
+            alt: data.alt_description,
+            created_at: data.created_at,
+            image_url: data.urls.raw,
+            id: data.id,
+            download_link: data.links.download,
+            user_name: data.user.name,
+            user_profile_link: data.user.links.html,
+          }}
+        />
       </div>
     </article>
   );

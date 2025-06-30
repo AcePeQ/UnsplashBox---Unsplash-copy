@@ -20,8 +20,6 @@ function AddToCollectionForm({
     return findedImageInCollection ? false : true;
   });
 
-  console.log(userCollections);
-
   return (
     <div className={styles.form}>
       <div className={styles.collection_cards}>
@@ -31,7 +29,7 @@ function AddToCollectionForm({
           !isError &&
           userCollections?.map((collection) => (
             <ImageCollectionCard
-              key={`${Math.random()}`}
+              key={collection._id}
               type="add"
               collection={collection}
               image={image}
