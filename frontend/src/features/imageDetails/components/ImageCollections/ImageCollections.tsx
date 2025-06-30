@@ -15,6 +15,9 @@ function ImageCollections({ image }: { image: IImageTypes }) {
       <div className={styles.collection_cards}>
         {isPending && <Loading />}
         {isError && null}
+        {data?.length === 0 && (
+          <p>This image isn't in any of your collections</p>
+        )}
         {data &&
           data.map((collection: ICollection) => (
             <ImageCollectionCard

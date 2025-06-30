@@ -27,6 +27,7 @@
 .authorInformations {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 1.5rem;
 
   width: 100%;
@@ -37,6 +38,9 @@
   align-items: center;
 
   gap: 1.25rem;
+
+  text-decoration: none;
+  color: inherit;
 
   img {
     border-radius: 50%;

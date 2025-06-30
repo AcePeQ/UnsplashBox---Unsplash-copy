@@ -3,6 +3,7 @@ import ImageCollectionCard from "../../../imageDetails/components/ImageCollectio
 import { useGetUserCollections } from "../../useGetUserCollections";
 import Loading from "../../../../components/Loading/Loading";
 import type { IImageTypes } from "../../../../types/imageTypes";
+import AddCollectionButton from "../../../../components/AddCollectionButton/AddCollectionButton";
 
 function AddToCollectionForm({
   image,
@@ -35,6 +36,7 @@ function AddToCollectionForm({
               image={image}
             />
           ))}
+        {userCollections?.length === 0 && <AddCollectionButton />}
       </div>
     </div>
   );

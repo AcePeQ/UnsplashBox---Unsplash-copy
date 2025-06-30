@@ -35,13 +35,17 @@ function ImageDetails() {
 
       <div>
         <div className={styles.authorInformations}>
-          <div className={styles.author}>
+          <a
+            href={data.user.links.html}
+            target="_blank"
+            className={styles.author}
+          >
             <img
               src={data?.user.profile_image.medium}
               alt={`Photo of the author: ${data.user.name}`}
             />
             <p>{data?.user.name}</p>
-          </div>
+          </a>
 
           <p className={styles.publish_date}>Published on {formattedDate}</p>
 

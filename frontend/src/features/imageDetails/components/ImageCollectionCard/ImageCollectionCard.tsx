@@ -6,6 +6,7 @@ import type { IImageTypes } from "../../../../types/imageTypes";
 import { useAddImageToCollection } from "../../../imageSearch/useAddImageToCollection";
 import type React from "react";
 import { useQueryClient } from "@tanstack/react-query";
+import { useDeleteImageFromCollection } from "../../../imageSearch/useDeleteImageFromCollection";
 
 function ImageCollectionCard({
   type = "delete",
@@ -19,6 +20,8 @@ function ImageCollectionCard({
   const queryClient = useQueryClient();
   const { addImageToCollection, isPending: isAdding } =
     useAddImageToCollection();
+  const { removeImageFromCollection, isPending: isRemoving } =
+    useDeleteImageFromCollection();
 
   function handleAddImageToCollection(e: React.MouseEvent) {
     e.preventDefault();
@@ -31,6 +34,21 @@ function ImageCollectionCard({
             queryClient.invalidateQueries({
               queryKey: ["userCollections"],
             });
+            queryClient.invalidateQueries({ queryKey: ["imageCollections"] });
+          },
+        }
+      );
+    }
+  }
+
+  function handleRemoveImageFromCollection(e: React.MouseEvent) {
+    e.preventDefault();
+
+    if (collection) {
+      removeImageFromCollection(
+        { collection_id: collection._id, image_id: image.id },
+        {
+          onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["imageCollections"] });
           },
         }
@@ -59,7 +77,11 @@ function ImageCollectionCard({
         </div>
       </div>
       {type === "delete" && (
-        <button className={styles.removeButton}>
+        <button
+          onClick={handleRemoveImageFromCollection}
+          className={styles.removeButton}
+          disabled={isRemoving}
+        >
           <Minus className={styles.icon} />
           Remove
         </button>
