@@ -21,7 +21,7 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-.gallery .image .notify {
+.gallery .notify {
   grid-column: 1/-1;
   grid-row: 1/-1;
 

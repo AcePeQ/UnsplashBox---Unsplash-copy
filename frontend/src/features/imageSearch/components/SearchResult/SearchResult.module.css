@@ -1,22 +1,3 @@
-.resultWrapper {
-  margin-top: 6rem;
-
-  padding: 0 8rem;
-
-  column-count: 4;
-
-  figure {
-    margin-bottom: 2rem;
-
-    border-radius: 6px;
-    overflow: hidden;
-  }
-
-  figure img {
-    width: 100%;
-  }
-}
-
 .buttonWrapper {
   display: flex;
   align-items: center;

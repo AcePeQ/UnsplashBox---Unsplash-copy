@@ -8,6 +8,7 @@ export interface ICollectionItem {
   download_link: string;
   user_name: string;
   user_profile_link: string;
+  _id: mongoose.Types.ObjectId;
 }
 
 export interface ICollection {

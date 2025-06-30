@@ -9,9 +9,17 @@ import AddToCollectionButton from "../AddToCollectionButton/AddToCollectionButto
 
 interface ImageCardProps {
   image: IImageTypes;
+  type?: string;
+  isDeleting?: boolean;
+  onDeleteImageFromCollection?: (imageID: string) => void;
 }
 
-function ImageCard({ image }: ImageCardProps) {
+function ImageCard({
+  image,
+  type = "add",
+  isDeleting,
+  onDeleteImageFromCollection,
+}: ImageCardProps) {
   const { downloadImage } = useDownloadImage();
 
   return (
@@ -29,11 +37,25 @@ function ImageCard({ image }: ImageCardProps) {
       >
         <img src={image.image_url} />
         <div className={styles.imageOverlay}>
-          <AddToCollectionButton
-            buttonText="Add"
-            buttonType="secondary"
-            image={image}
-          />
+          {type === "add" ? (
+            <AddToCollectionButton
+              buttonText="Add"
+              buttonType="secondary"
+              image={image}
+            />
+          ) : (
+            <Button
+              disabled={isDeleting}
+              onClick={() => {
+                if (onDeleteImageFromCollection)
+                  onDeleteImageFromCollection(image._id);
+              }}
+              type="button"
+              buttonType="secondary"
+            >
+              Remove
+            </Button>
+          )}
 
           <button
             onClick={() => {

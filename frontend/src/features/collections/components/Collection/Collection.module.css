@@ -1,0 +1,33 @@
+.my-masonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -30px;
+  width: auto;
+
+  padding-inline: 8rem;
+  margin-top: 6rem;
+}
+.my-masonry-grid_column {
+  padding-left: 30px;
+  background-clip: padding-box;
+}
+
+.my-masonry-grid_column > figure {
+  margin-bottom: 30px;
+  border-radius: 6px;
+  overflow: hidden;
+
+  position: relative;
+
+  img {
+    width: 100%;
+  }
+
+  a {
+    width: 100%;
+    display: block;
+
+    color: var(--text-white);
+  }
+}

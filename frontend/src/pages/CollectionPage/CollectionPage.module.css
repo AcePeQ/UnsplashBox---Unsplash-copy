@@ -1,18 +1,11 @@
 .section {
-  height: calc(100% - 40px);
   display: flex;
 
   margin-top: 40px;
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-
-  max-width: 1200px;
   width: 100%;
-
-  margin: 0 auto;
 
   h1 {
     font-size: 4.2rem;

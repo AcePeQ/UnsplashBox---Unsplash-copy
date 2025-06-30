@@ -30,6 +30,40 @@ export async function getUserCollections() {
   }
 }
 
+export async function getCollection(collection_name: string) {
+  try {
+    const res = await fetch(
+      `${API_URL}/api/collection/collection?collection_name=${encodeURIComponent(
+        collection_name
+      )}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "GET",
+        credentials: "include",
+      }
+    );
+
+    if (!res.ok) {
+      const error: IApiError = await res.json();
+      throw new Error(error.message);
+    }
+
+    const data = await res.json();
+
+    return data;
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error("API Error:", error.message);
+      throw error;
+    } else {
+      console.error("Unknown error:", error);
+      throw new Error("Something went wrong");
+    }
+  }
+}
+
 export async function createCollection(collectionData: {
   collection_name: string;
 }) {
