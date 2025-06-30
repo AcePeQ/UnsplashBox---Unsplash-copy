@@ -25,7 +25,7 @@ function AddToCollectionButton({
 
   function handleOpenModal() {
     if (!isLoggedIn) {
-      toast.error("You must be logged in to add image to the collection");
+      toast.error("Login to add image to the collection");
       return;
     }
 

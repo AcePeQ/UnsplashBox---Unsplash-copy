@@ -22,9 +22,7 @@ function CollectionsPage() {
         {isLoggedIn ? (
           <Collections />
         ) : (
-          <p className={styles.notification}>
-            You have to be logged in to create collections
-          </p>
+          <p className={styles.notification}>Login to check your collections</p>
         )}
       </div>
     </section>

@@ -6,7 +6,7 @@ export function useDownloadImage() {
   const { mutate: downloadImage } = useMutation({
     mutationFn: ({ download_location }: { download_location: string }) =>
       downloadImageApi(download_location),
-    onSuccess: () => toast.success("Download successfully"),
+    onSuccess: () => toast.success("Downloaded successfully"),
     onError: (error) => toast.error(error.message),
   });
 

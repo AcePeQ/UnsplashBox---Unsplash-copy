@@ -6,8 +6,10 @@ import Loading from "../../../../components/Loading/Loading";
 import Button from "../../../../components/Button/Button";
 import { useDownloadImage } from "../../../imageSearch/useDownloadImage";
 import AddToCollectionButton from "../../../../components/AddToCollectionButton/AddToCollectionButton";
+import { useUserStore } from "../../../../stores/useUserStore";
 
 function ImageDetails() {
+  const isLoggedIn = useUserStore((state) => state.user);
   const { image_id } = useParams();
   const { downloadImage } = useDownloadImage();
 
@@ -76,17 +78,19 @@ function ImageDetails() {
           </div>
         </div>
 
-        <ImageCollections
-          image={{
-            alt: data.alt_description,
-            created_at: data.created_at,
-            image_url: data.urls.raw,
-            id: data.id,
-            download_link: data.links.download,
-            user_name: data.user.name,
-            user_profile_link: data.user.links.html,
-          }}
-        />
+        {isLoggedIn && (
+          <ImageCollections
+            image={{
+              alt: data.alt_description,
+              created_at: data.created_at,
+              image_url: data.urls.raw,
+              id: data.id,
+              download_link: data.links.download,
+              user_name: data.user.name,
+              user_profile_link: data.user.links.html,
+            }}
+          />
+        )}
       </div>
     </article>
   );
