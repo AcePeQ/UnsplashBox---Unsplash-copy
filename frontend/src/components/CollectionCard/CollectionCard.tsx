@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom";
 import styles from "./CollectionCard.module.css";
 import type { ICollection } from "../../types/collectionTypes";
+import Button from "../Button/Button";
 
-function CollectionCard({ collection }: { collection: ICollection }) {
+function CollectionCard({
+  collection,
+  type,
+  onDeleteCollection,
+}: {
+  collection: ICollection;
+  type?: string;
+  onDeleteCollection?: (collection_id: string) => void;
+}) {
   const collectionLength = collection.collection.length;
   const collectionImages = collection.collection.slice(0, 3);
 
@@ -31,10 +40,31 @@ function CollectionCard({ collection }: { collection: ICollection }) {
             />
           ))}
         </figure>
-        <div className={styles.details}>
-          <h5 className={styles.title}>{collection.collection_name}</h5>
-          <p className={styles.subTitle}>{collectionLength} photos</p>
-        </div>
+        {type === "profile" ? (
+          <div className={styles.details}>
+            <div>
+              <h5 className={styles.title}>{collection.collection_name}</h5>
+              <p className={styles.subTitle}>{collectionLength} photos</p>
+            </div>
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+
+                if (onDeleteCollection) onDeleteCollection(collection._id);
+              }}
+              buttonType="primary"
+            >
+              Delete
+            </Button>
+          </div>
+        ) : (
+          <>
+            <div className={styles.details}>
+              <h5 className={styles.title}>{collection.collection_name}</h5>
+              <p className={styles.subTitle}>{collectionLength} photos</p>
+            </div>
+          </>
+        )}
       </Link>
     </article>
   );

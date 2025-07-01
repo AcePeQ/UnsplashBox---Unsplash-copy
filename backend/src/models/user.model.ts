@@ -6,6 +6,7 @@ export interface IUser {
   password: string;
   username: string;
   profilePicture: string;
+  createdAt: string;
 }
 
 const userSchema = new Schema(

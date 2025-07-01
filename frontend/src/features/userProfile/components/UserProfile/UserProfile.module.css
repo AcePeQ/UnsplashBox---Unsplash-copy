@@ -1,0 +1,71 @@
+.imageWrapper {
+  width: 100%;
+  height: 240px;
+
+  position: relative;
+
+  img {
+    width: 240px;
+    height: 240px;
+
+    margin: 0 auto;
+
+    border-radius: 50%;
+  }
+
+  label {
+    box-sizing: content-box;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    cursor: pointer;
+
+    background-color: #fff;
+    border-radius: 50%;
+
+    padding: 6px;
+
+    z-index: 10;
+
+    width: 48px;
+    height: 48px;
+
+    .icon {
+      width: 48px;
+      height: 48px;
+    }
+
+    input {
+      visibility: none;
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  margin-bottom: 2rem;
+}
+
+.title {
+  text-align: center;
+
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.35px;
+
+  margin-bottom: 1rem;
+}
+
+.subText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+
+  span {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+}

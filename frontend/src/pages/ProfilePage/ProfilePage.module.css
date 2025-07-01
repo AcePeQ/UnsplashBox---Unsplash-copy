@@ -1,0 +1,16 @@
+.section {
+  height: calc(100% - 40px);
+  display: flex;
+
+  margin-top: 40px;
+}
+
+.wrapper {
+  width: 160rem;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 350px 1fr;
+
+  column-gap: 6rem;
+}

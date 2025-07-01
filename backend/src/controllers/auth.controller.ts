@@ -34,6 +34,7 @@ export async function login(req: Request, res: Response) {
       email: user.email,
       profilePicture: user.profilePicture,
       username: user.username,
+      created_at: user.createdAt,
     });
   } catch (error) {
     console.log(`Error in login controller: ${error}`);

@@ -7,6 +7,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Layout from "./components/Layouts/Layout";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const ProfilePage = lazy(() => import("./pages/ProfilePage/ProfilePage"));
 const SearchPage = lazy(() => import("./pages/SearchPage/SearchPage"));
 const CollectionsPage = lazy(
   () => import("./pages/CollectionsPage/CollectionsPage")
@@ -34,6 +35,7 @@ function App() {
               element={<CollectionPage />}
             />
             <Route path="/search/:query" element={<SearchPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
           </Route>
         </Routes>
       </BrowserRouter>
