@@ -1,0 +1,59 @@
+.loadingWrapper {
+  margin: 6rem 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  height: calc(100dvh - var(--height-navbar) - 60px);
+}
+
+.loading {
+  width: 7.2rem;
+  height: 7.2rem;
+
+  background-color: transparent;
+
+  border: 1rem solid;
+
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  border-image-slice: 1;
+
+  border-radius: 50%;
+
+  z-index: 1;
+
+  animation: rotate-right 4s infinite ease-in-out;
+}
+
+.loading_2 {
+  content: "";
+  position: absolute;
+
+  width: 2.4rem;
+  height: 2.4rem;
+
+  border-radius: 50%;
+
+  background-color: transparent;
+
+  border: 0.75rem solid var(--color-black);
+
+  z-index: 2;
+}
+
+@keyframes rotate-right {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
