@@ -6,6 +6,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import Layout from "./components/Layouts/Layout";
 import LoadingFull from "./components/LoadingFull/LoadingFull";
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const ProfilePage = lazy(() => import("./pages/ProfilePage/ProfilePage"));
@@ -38,6 +39,8 @@ function App() {
               />
               <Route path="/search/:query" element={<SearchPage />} />
               <Route path="/profile" element={<ProfilePage />} />
+
+              <Route path="*" element={<PageNotFound />} />
             </Route>
           </Routes>
         </Suspense>

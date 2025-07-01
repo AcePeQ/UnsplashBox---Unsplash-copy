@@ -1,0 +1,9 @@
+.section {
+  height: 100%;
+  width: 100%;
+  background-image: url("/404-error.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  background-color: #1a1a1a;
+}
