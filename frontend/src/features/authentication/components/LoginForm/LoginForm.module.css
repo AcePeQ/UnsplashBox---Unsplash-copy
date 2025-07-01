@@ -12,6 +12,7 @@
     font-size: 2rem;
 
     padding: 4px 2px;
+    width: 100%;
 
     border: none;
     border-bottom: 2px solid var(--color-gray-dark-2);
@@ -23,6 +24,29 @@
   & input:focus-within,
   & input:not(:placeholder-shown) {
     border-bottom: 2px solid var(--color-black-2);
+  }
+
+  div {
+    position: relative;
+  }
+}
+
+.passwordInput {
+  padding-right: 50px !important;
+}
+
+.showPassword {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+
+  cursor: pointer;
+  background: none;
+  border: none;
+
+  & .icon {
+    width: 3rem;
+    height: 3rem;
   }
 }
 

@@ -3,6 +3,7 @@ import {
   forwardRef,
   useImperativeHandle,
   useRef,
+  useState,
   type ReactElement,
 } from "react";
 import styles from "./Modal.module.css";
@@ -14,16 +15,22 @@ interface IModal {
 }
 
 const Modal = forwardRef(function Modal({ title, children }: IModal, ref) {
+  const [contentRender, setContentRender] = useState(false);
   const modalRef = useRef<HTMLDialogElement | null>(null);
 
   useImperativeHandle(ref, () => {
     return {
       open() {
-        if (modalRef.current) modalRef.current.showModal();
+        if (modalRef.current) {
+          modalRef.current.showModal();
+          setContentRender(true);
+        }
       },
 
       close() {
-        if (modalRef.current) modalRef.current.close();
+        if (modalRef.current) {
+          modalRef.current.close();
+        }
       },
     };
   });
@@ -33,6 +40,12 @@ const Modal = forwardRef(function Modal({ title, children }: IModal, ref) {
       onClick={(e) => e.stopPropagation()}
       ref={modalRef}
       className={styles.dialog}
+      onClose={() => {
+        setTimeout(() => {
+          console.log("Elo");
+          setContentRender(false);
+        }, 300);
+      }}
     >
       <div
         id="modal"
@@ -45,7 +58,7 @@ const Modal = forwardRef(function Modal({ title, children }: IModal, ref) {
             <X size={36} />
           </button>
         </div>
-        {children}
+        {contentRender ? children : null}
       </div>
     </dialog>,
     document.getElementById("modals") as HTMLElement
