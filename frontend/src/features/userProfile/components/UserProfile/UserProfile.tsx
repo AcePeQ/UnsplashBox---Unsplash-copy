@@ -24,6 +24,17 @@ function UserProfile() {
 
     if (!file) return;
 
+    const allowedImageTypes = [
+      "image/jpeg",
+      "image/png",
+      "image/webp",
+      "image/gif",
+    ];
+    if (!allowedImageTypes.includes(file.type)) {
+      toast.error("There is only image available: JPG, PNG, WEBP, GIF.");
+      return;
+    }
+
     const reader = new FileReader();
     reader.readAsDataURL(file);
 
