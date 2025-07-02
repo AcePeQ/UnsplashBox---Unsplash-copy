@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { IAuthReq } from "../middlewares/auth.middlewares";
-import Collection, { ICollectionItem } from "../models/collection.model";
+import Collection from "../models/collection.model";
 
 export async function getCollections(req: Request, res: Response) {
   try {
@@ -83,6 +83,33 @@ export async function createCollection(req: Request, res: Response) {
 
     await newCollection.save();
     res.status(200).json({ message: "Collection created successfully" });
+  } catch (error) {
+    console.log(`Error in adding collection controller: ${error}`);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+}
+
+export async function deleteCollection(req: Request, res: Response) {
+  try {
+    const authReq = req as IAuthReq;
+    const { collection_id } = authReq.body;
+
+    if (!authReq.user) {
+      res.status(401).json({ message: "Unauthorized - No User Found" });
+      return;
+    }
+
+    if (!collection_id) {
+      res.status(400).json({ message: "Collection name not found" });
+      return;
+    }
+
+    await Collection.deleteOne({
+      userId: authReq.user._id,
+      _id: collection_id,
+    });
+
+    res.status(200).json({ message: "Collection successfully deleted" });
   } catch (error) {
     console.log(`Error in adding collection controller: ${error}`);
     res.status(500).json({ message: "Internal Server Error" });

@@ -3,6 +3,7 @@ import { verifyToken } from "../middlewares/auth.middlewares";
 import {
   addImageToCollection,
   createCollection,
+  deleteCollection,
   deleteImageFromCollection,
   getCollection,
   getCollections,
@@ -16,7 +17,7 @@ router.get("/collection", verifyToken, getCollection);
 router.get("/image-collections", verifyToken, getImageCollections);
 
 router.post("/create-collection", verifyToken, createCollection);
-// router.post("/delete-collection");
+router.post("/delete-collection", verifyToken, deleteCollection);
 
 router.post("/add-image-to-collection", verifyToken, addImageToCollection);
 router.post(

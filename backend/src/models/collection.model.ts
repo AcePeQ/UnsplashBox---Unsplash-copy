@@ -12,6 +12,7 @@ export interface ICollectionItem {
 }
 
 export interface ICollection {
+  _id: mongoose.Types.ObjectId;
   userId: mongoose.Types.ObjectId;
   collection_name: string;
   collection: ICollectionItem[];

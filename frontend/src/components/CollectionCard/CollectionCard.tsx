@@ -7,9 +7,11 @@ function CollectionCard({
   collection,
   type,
   onDeleteCollection,
+  isDeletingCollection,
 }: {
   collection: ICollection;
   type?: string;
+  isDeletingCollection?: boolean;
   onDeleteCollection?: (collection_id: string) => void;
 }) {
   const collectionLength = collection.collection.length;
@@ -47,6 +49,7 @@ function CollectionCard({
               <p className={styles.subTitle}>{collectionLength} photos</p>
             </div>
             <Button
+              disabled={isDeletingCollection}
               onClick={(e) => {
                 e.preventDefault();
 
