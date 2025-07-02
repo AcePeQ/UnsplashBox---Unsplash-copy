@@ -20,5 +20,5 @@
   border: 3px solid var(--color-gray-dark-2);
   border-radius: 50%;
 
-  padding: 0.5rem;
+  object-fit: cover;
 }

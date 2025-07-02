@@ -5,19 +5,19 @@
   position: relative;
 
   img {
-    width: 240px;
-    height: 240px;
+    width: 100%;
+    height: 100%;
 
     margin: 0 auto;
 
-    border-radius: 50%;
+    object-fit: contain;
   }
 
   label {
     box-sizing: content-box;
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: 20px;
+    bottom: 5px;
 
     cursor: pointer;
 

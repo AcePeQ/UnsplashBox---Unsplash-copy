@@ -3,6 +3,6 @@ export type TUser = {
   username: string;
   password: string;
   profilePicture: string;
-  created_at: string;
+  createdAt: string;
   updateAt: string;
 };
