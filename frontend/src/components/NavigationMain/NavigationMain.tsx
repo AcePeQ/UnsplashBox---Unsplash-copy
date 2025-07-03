@@ -10,9 +10,9 @@ function NavigationMain() {
   return (
     <nav className={styles.nav}>
       <ul className={styles.list}>
-        {MAIN_NAVIGATION_LINKS.map((link, index) => {
+        {MAIN_NAVIGATION_LINKS.map((link) => {
           return (
-            <li key={index} className={styles.link_item}>
+            <li key={link.linkTitle} className={styles.link_item}>
               <NavLink className={styles.link} to={link.path}>
                 {link.linkTitle}
               </NavLink>

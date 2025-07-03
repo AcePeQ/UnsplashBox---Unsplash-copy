@@ -29,8 +29,8 @@ function NavigationUserMenu({ isMenuOpen }: { isMenuOpen: boolean }) {
   return (
     <nav className={`${styles.nav} ${isMenuOpen ? styles.navActive : ""}`}>
       <ul className={styles.list}>
-        {UserMenuNav.map((link, index) => (
-          <li key={index} className={styles.item}>
+        {UserMenuNav.map((link) => (
+          <li key={link.text} className={styles.item}>
             <Link to={link.link} className={styles.link}>
               {link.text}
             </Link>
