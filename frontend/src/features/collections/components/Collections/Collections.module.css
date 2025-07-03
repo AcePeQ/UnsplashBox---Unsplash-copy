@@ -7,3 +7,15 @@
 
   gap: 3rem;
 }
+
+@media screen and (max-width: 1020px) {
+  .collections {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .collections {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
