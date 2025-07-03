@@ -60,3 +60,17 @@
   display: flex;
   gap: 2rem;
 }
+
+@media screen and (max-width: 960px) {
+  .details {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 5rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .details {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 4rem;
+  }
+}
