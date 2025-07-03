@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 import type { IImageTypes } from "../../types/imageTypes";
 import { useDownloadImage } from "../../features/imageSearch/useDownloadImage";
 import AddToCollectionButton from "../AddToCollectionButton/AddToCollectionButton";
+import { Download } from "lucide-react";
 
 interface ImageCardProps {
   image: IImageTypes;
@@ -64,7 +65,7 @@ function ImageCard({
             aria-label="redirect to Unsplash author profile"
             className={styles.userName}
           >
-            Author: {image.user_name}
+            Author: <br /> {image.user_name}
           </button>
 
           <Button
@@ -74,7 +75,7 @@ function ImageCard({
               downloadImage({ download_location: image.download_link });
             }}
           >
-            Download
+            <Download />
           </Button>
         </div>
       </Link>

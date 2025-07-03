@@ -28,7 +28,7 @@
 .imageOverlay button:nth-child(2) {
   position: absolute;
 
-  bottom: 16px;
+  bottom: 8px;
   left: 16px;
 
   z-index: 2;
@@ -60,4 +60,8 @@
   opacity: 100%;
   visibility: visible;
   pointer-events: all;
+}
+
+.userName {
+  text-align: left;
 }
