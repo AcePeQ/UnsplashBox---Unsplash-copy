@@ -7,3 +7,19 @@
 
   background-color: #1a1a1a;
 }
+
+@media screen and (max-width: 1000px) {
+  .section {
+    background-position: left;
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .section {
+    background-position: center;
+    background-size: 100%;
+
+    background-color: #1a1a1a;
+  }
+}
