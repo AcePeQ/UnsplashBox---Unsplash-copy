@@ -6,7 +6,6 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import Layout from "./components/Layouts/Layout";
 import LoadingFull from "./components/LoadingFull/LoadingFull";
-import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const ProfilePage = lazy(() => import("./pages/ProfilePage/ProfilePage"));
@@ -18,6 +17,7 @@ const ImagePage = lazy(() => import("./pages/ImagePage/ImagePage"));
 const CollectionPage = lazy(
   () => import("./pages/CollectionPage/CollectionPage")
 );
+const PageNotFound = lazy(() => import("./pages/PageNotFound/PageNotFound"));
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 0 } },
