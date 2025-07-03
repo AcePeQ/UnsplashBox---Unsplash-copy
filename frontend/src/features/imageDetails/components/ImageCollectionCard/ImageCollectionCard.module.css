@@ -2,6 +2,8 @@
   display: grid;
   grid-template-columns: 1fr max-content;
 
+  column-gap: 2rem;
+
   padding: 1rem;
 
   transition: all 0.4s;
@@ -77,4 +79,24 @@
   border-radius: 6px;
 
   background-color: var(--color-gray-light-1);
+}
+
+@media (hover: none) {
+  .removeButton {
+    display: initial;
+  }
+  .collection_card .removeButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    font-size: 1.4rem;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    background: none;
+    border: none;
+  }
 }

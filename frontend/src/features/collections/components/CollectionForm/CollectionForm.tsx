@@ -49,6 +49,10 @@ function LoginForm({ onCloseModal }: { onCloseModal: () => void }) {
           aria-invalid={errors.collection_name ? true : false}
           {...register("collection_name", {
             required: "Collection name field is required",
+            maxLength: {
+              value: 14,
+              message: "Collection name must have 14 or less characters",
+            },
           })}
         />
       </FormRow>
