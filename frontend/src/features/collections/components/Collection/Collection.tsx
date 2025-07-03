@@ -9,9 +9,9 @@ import { useDeleteImageFromCollection } from "../../../imageSearch/useDeleteImag
 
 const breakpointColumnsObj = {
   default: 4,
-  1100: 3,
-  700: 2,
-  500: 1,
+  1280: 3,
+  850: 2,
+  600: 1,
 };
 
 interface ICollectionType {

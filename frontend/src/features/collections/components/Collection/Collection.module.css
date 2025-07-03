@@ -31,3 +31,9 @@
     color: var(--text-white);
   }
 }
+
+@media screen and (max-width: 1420px) {
+  .my-masonry-grid {
+    padding-inline: 2rem;
+  }
+}
