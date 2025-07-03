@@ -1,8 +1,10 @@
 .imageWrapper {
-  width: 100%;
+  width: 240px;
   height: 240px;
 
   position: relative;
+
+  margin: 0 auto;
 
   img {
     width: 100%;
@@ -16,7 +18,7 @@
   label {
     box-sizing: content-box;
     position: absolute;
-    right: 20px;
+    right: 8px;
     bottom: 5px;
 
     cursor: pointer;

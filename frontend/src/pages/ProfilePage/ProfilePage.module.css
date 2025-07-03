@@ -3,14 +3,39 @@
   display: flex;
 
   margin-top: 40px;
+
+  padding-inline: 3rem;
+  padding-bottom: 3rem;
+
+  overflow: hidden;
 }
 
 .wrapper {
-  width: 160rem;
+  max-width: 160rem;
+  width: 100%;
   margin: 0 auto;
 
   display: grid;
   grid-template-columns: 350px 1fr;
 
   column-gap: 6rem;
+}
+
+@media screen and (max-width: 1420px) {
+  .wrapper {
+    grid-template-columns: 275px 1fr;
+    column-gap: 4rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    row-gap: 4rem;
+    column-gap: 0;
+  }
+
+  .section {
+    padding-inline: 2rem;
+  }
 }
