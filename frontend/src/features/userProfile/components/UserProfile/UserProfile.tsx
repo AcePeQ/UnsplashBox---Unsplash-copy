@@ -44,7 +44,6 @@ function UserProfile() {
         { profilePicture: imageBase64 },
         {
           onSuccess: (data) => {
-            console.log(data);
             login(data);
             sessionStorage.setItem("user", JSON.stringify(data));
           },

@@ -42,7 +42,6 @@ const Modal = forwardRef(function Modal({ title, children }: IModal, ref) {
       className={styles.dialog}
       onClose={() => {
         setTimeout(() => {
-          console.log("Elo");
           setContentRender(false);
         }, 300);
       }}
