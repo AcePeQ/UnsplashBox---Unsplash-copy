@@ -5,6 +5,7 @@
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  align-items: center;
 
   height: var(--height-navbar);
 
@@ -16,4 +17,54 @@
 
   z-index: 100;
   background-color: var(--color-white);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.menu {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+
+  height: var(--height-navbar);
+
+  padding: 1rem 2rem;
+
+  border-bottom: 2px solid var(--color-gray-light-1);
+
+  z-index: 70;
+  background-color: var(--color-white);
+}
+
+.menu > *:first-child {
+  justify-self: start;
+}
+
+.menu > *:last-child {
+  justify-self: end;
+}
+
+@media screen and (max-width: 540px) {
+  .header {
+    padding: 1rem 0.75rem;
+  }
+
+  .menu {
+    padding: 1rem 0.75rem;
+    height: 144px;
+    grid-template-columns: 1fr;
+    row-gap: 2.5rem;
+  }
+
+  .menu > *:first-child {
+    justify-self: end;
+  }
 }
