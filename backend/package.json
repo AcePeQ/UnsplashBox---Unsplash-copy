@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc --project ./",
     "start:dev": "nodemon --exec ts-node src/server.ts",
-    "start:prod": "node dist/server.js"
+    "start:prod": "node dist/server.js",
+    "start": "npm run build && npm run start:prod"
   },
   "author": "",
   "license": "ISC",
