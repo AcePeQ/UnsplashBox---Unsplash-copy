@@ -6,6 +6,8 @@ import { useRegister } from "../../useRegister";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 export interface IRegisterInputs {
   email: string;
   password: string;
@@ -40,11 +42,15 @@ function RegisterForm({ onCloseModal }: { onCloseModal: () => void }) {
       <FormRow label="Email" error={errors.email?.message as string}>
         <input
           id="email"
-          type="text"
+          type="email"
           placeholder=" "
           aria-invalid={errors.email ? true : false}
           {...register("email", {
             required: "Email field is required",
+            pattern: {
+              value: emailRegex,
+              message: "Invalid email format: example@gmail.com",
+            },
           })}
         />
       </FormRow>
@@ -57,6 +63,10 @@ function RegisterForm({ onCloseModal }: { onCloseModal: () => void }) {
           aria-invalid={errors.username ? true : false}
           {...register("username", {
             required: "Username field is required",
+            minLength: {
+              value: 3,
+              message: "Username must contain at least 3 characters",
+            },
           })}
         />
       </FormRow>
@@ -69,9 +79,9 @@ function RegisterForm({ onCloseModal }: { onCloseModal: () => void }) {
             className={styles.showPassword}
           >
             {showPassword ? (
-              <EyeOff className={styles.icon} />
-            ) : (
               <Eye className={styles.icon} />
+            ) : (
+              <EyeOff className={styles.icon} />
             )}
           </button>
           <input
@@ -82,6 +92,10 @@ function RegisterForm({ onCloseModal }: { onCloseModal: () => void }) {
             placeholder=" "
             {...register("password", {
               required: "Password field is required",
+              minLength: {
+                value: 8,
+                message: "Password must contain atleast 8 characters",
+              },
             })}
           />
         </div>

@@ -48,13 +48,31 @@ export async function register(req: Request, res: Response) {
   try {
     const { email, password, username } = req.body;
 
-    if (!email || !password || !username) {
+    const trimmedUsername = username.trim();
+
+    if (!email || !password || !trimmedUsername) {
       res.status(400).json({ message: "All fields are required" });
       return;
     }
 
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (!emailRegex.test(email)) {
+      res
+        .status(400)
+        .json({ message: "Invalid email format: example@gmail.com" });
+      return;
+    }
+
+    if (password.length < 8) {
+      res
+        .status(400)
+        .json({ message: "Password must contain at least 8 characters" });
+      return;
+    }
+
     const userEmail = await User.findOne({ email });
-    const userName = await User.findOne({ username });
+    const userName = await User.findOne({ trimmedUsername });
     if (userEmail || userName) {
       res
         .status(400)
@@ -68,7 +86,7 @@ export async function register(req: Request, res: Response) {
     const newUser = new User({
       email,
       password: hashedPassword,
-      username,
+      username: trimmedUsername,
     });
 
     await newUser.save();

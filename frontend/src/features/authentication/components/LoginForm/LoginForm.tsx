@@ -46,7 +46,7 @@ function LoginForm({ onCloseModal }: { onCloseModal: () => void }) {
       <FormRow label="Email" error={errors.email?.message as string}>
         <input
           id="email-login"
-          type="text"
+          type="email"
           placeholder=" "
           aria-invalid={errors.email ? true : false}
           {...register("email", {
