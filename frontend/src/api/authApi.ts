@@ -9,6 +9,7 @@ export async function loginApi(loginData: ILoginData) {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       method: "POST",
       body: JSON.stringify(loginData),
     });
@@ -68,6 +69,7 @@ export async function logoutApi() {
         "Content-Type": "application/json",
       },
       method: "POST",
+      credentials: "include",
     });
 
     if (!res.ok) {
