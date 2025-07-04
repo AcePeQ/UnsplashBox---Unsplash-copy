@@ -18,7 +18,13 @@ const app = express();
 const PORT = process.env.PORT;
 
 // Add middleware CORS to the app, so server can accept requests connection from different domains
-app.use(cors());
+// app.use(cors());
+app.use(
+  cors({
+    origin: "https://unsplashbox-frontend.onrender.com",
+    credentials: true,
+  })
+);
 
 app.use(cookieParser());
 
