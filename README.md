@@ -59,7 +59,7 @@ https://unsplashbox-frontend.onrender.com/
 
 ### Backend
 
-- Node.js
+- Node.js 24.22.1
 - Express
 - TypeScript
 - MongoDB
